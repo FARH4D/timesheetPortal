@@ -9,27 +9,28 @@
 </head>
 
 
-
-
-
 <body>
 
 
     <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">REGISTER </p>
 
-    <form method = "post" action = "login.php">
+    <form method = "post" action = "signup.php">
         <?php if (isset($_GET['error'])){ ?>
             <p class = "text-danger mt-5" style="margin-left:43.5%; font-weight: bolder;"> <?php echo $_GET['error']; ?> </p>
         <?php } ?>
+
+        <?php if (isset($_GET['signedUp'])){ ?>
+            <p class = "text-success mt-5" style="margin-left:43.5%; font-weight: bolder;"> <?php echo $_GET['signedUp']; ?> </p>
+        <?php } ?>
         
         <div class = "pt-4 mb-3 text-center">
-            <label for = "password" class = "form-label text-white ms-5">First Name: &nbsp;</label>
-            <input type = "password" class = "form-control-sm" name = "firstName1">
+            <label for = "firstName" class = "form-label text-white ms-5">First Name: &nbsp;</label>
+            <input type = "name" class = "form-control-sm" name = "firstName1">
         </div>
 
         <div class = "pt-4 mb-3 text-center">
-            <label for = "password" class = "form-label text-white ms-5">Last Name: &nbsp; </label>
-            <input type = "password" class = "form-control-sm" name = "lastName1">
+            <label for = "lastName" class = "form-label text-white ms-5">Last Name: &nbsp; </label>
+            <input type = "name" class = "form-control-sm" name = "lastName1">
         </div>
 
         <div class = "pt-4 text-center mb-3 pb-3">
@@ -40,6 +41,11 @@
         <div class = "mb-3 text-center">
             <label for = "password" class = "form-label text-white ms-5">Password: &nbsp; </label>
             <input type = "password" class = "form-control-sm" name = "password1">
+        </div>
+
+        <div class = "mb-3 text-center">
+            <label for = "rePassword" class = "form-label text-white ms-5">Confirm &nbsp; </br>Password: &nbsp; </label>
+            <input type = "password" class = "form-control-sm" name = "rePassword1">
         </div>
 
         <div class = "mb-3" style = "margin-left: 50%">

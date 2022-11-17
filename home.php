@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Europe/London');
 session_start();
 
 if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
@@ -7,6 +8,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 ?>
 
+<script>
+        var d = new Date();
+    </script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +23,23 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 </head>
 
 <body>
+
+<div class = "px-3 py-3 bg-primary">
     
-<div class = "d-inline-flex">
+    <span id = "timeTest" class = "text-white fw-bold h4"> </span>
+
+</div>
+
+
+<div class = "d-inline-flex h2 text-white fw-bold ms-3 mt-3 inline-flex">
     <?php if(date('H') <= 12){ ?> 
-    <p class = "h2 text-white fw-bold ms-3 mt-3 inline-flex"> Good morning, </p> <?php
+    <p> Good morning,&nbsp;</p> <?php
     }elseif (date('H') >=12 and date('H') <= 17){ ?>
-        <p class = "h2 text-white fw-bold ms-3 mt-3 inline-flex"> Good afternoon, </p> <?php
+        <p> Good afternoon,&nbsp;</p> <?php
     }else{ ?>
-        <p class = "h2 text-white fw-bold ms-3 mt-3 inline-flex"> Good evening, </p> <?php
+        <p> Good evening,&nbsp;</p> <?php
     }
-    ?> <p class = "h2 text-white fw-bold ms-3 mt-3 inline-flex" > <?php echo $_SESSION['firstName']; ?></p>
+    ?> <p> <?php echo $_SESSION['firstName'];?>.</p>
 </div> </br>
 
     <a href = "logout.php" class = "h4 text-white fw-bold ms-3 mt-5">Logout </a>
