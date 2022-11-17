@@ -33,7 +33,7 @@ if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['u
         exit();
     
     } else{
-
+        $pWord = md5($pWord);
         $sql = "SELECT * FROM users WHERE username='$uName'";
         $result = mysqli_query($conn, $sql);
         

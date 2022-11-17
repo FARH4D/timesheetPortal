@@ -14,6 +14,7 @@ if (isset($_POST['username1']) && isset($_POST['password1'])){
         header("Location: index.php?error=Password required!");
         exit();
     } else{
+        $pWord = md5($pWord);
         $sql = "SELECT * FROM users WHERE username='$uName' AND pWord='$pWord'";
         $result = mysqli_query($conn, $sql);
 
