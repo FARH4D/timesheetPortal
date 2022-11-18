@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "timesheetUsers";
+$dbname = "20174504";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 

@@ -4,13 +4,18 @@ session_start();
 
 if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
-
-
 ?>
 
+
 <script>
+
+    function refresh(){
         var d = new Date();
-    </script>
+        document.getElementById("currentTime").innerHTML = d.toLocaleTimeString();
+    }
+    
+</script>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,24 +29,27 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 <body>
 
-<div class = "px-3 py-3 bg-primary">
+    <div class = "px-3 py-3 bg-primary">
+        <span id = "currentDate" class = "text-white fw-bold h4 d-inline-flex" ></span>
+        <a href = "home.php"><img src = "images/homeIcon.png" style = "width: 3%; margin-left: 38%"></a>
+        <p class = "text-white fw-bold h4 d-inline-flex" style = "margin-left: 40%"> <?php echo $_SESSION['username']; ?> </p>
+    </div>
+
+
+    <div class = "d-inline-flex h2 text-white fw-bold ms-3 mt-3 inline-flex">
+        <?php if(date('H') <= 12){ ?> 
+            <p> Good morning,&nbsp;</p> <?php
+        }elseif (date('H') >=12 and date('H') <= 17){ ?>
+            <p> Good afternoon,&nbsp;</p> <?php
+        }else{ ?>
+            <p> Good evening,&nbsp;</p> <?php
+        }
+        ?> <p> <?php echo $_SESSION['firstName'];?>.</p>
+    </div> </br>
     
-    <span id = "timeTest" class = "text-white fw-bold h4"> </span>
-
-</div>
-
-
-<div class = "d-inline-flex h2 text-white fw-bold ms-3 mt-3 inline-flex">
-    <?php if(date('H') <= 12){ ?> 
-    <p> Good morning,&nbsp;</p> <?php
-    }elseif (date('H') >=12 and date('H') <= 17){ ?>
-        <p> Good afternoon,&nbsp;</p> <?php
-    }else{ ?>
-        <p> Good evening,&nbsp;</p> <?php
-    }
-    ?> <p> <?php echo $_SESSION['firstName'];?>.</p>
-</div> </br>
-
+    <body onload = "setInterval(refresh, 100);">
+            <span id = "currentTime" class = "text-white fw-bold h1" style = "margin-left: 43%" ></span>
+    </body></br>
     <a href = "logout.php" class = "h4 text-white fw-bold ms-3 mt-5">Logout </a>
 
 </body>
@@ -64,5 +72,9 @@ else{
     header("Location: index.php");
     exit();
 }
-
 ?>
+
+<script>
+    var date = new Date();
+    document.getElementById("currentDate").innerHTML = date.toLocaleDateString();
+</script>
