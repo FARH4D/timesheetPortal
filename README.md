@@ -1,2 +1,2 @@
 # timesheetPortal
-A timesheet portal website made using Bootstrap and SQL
+A timesheet portal website made using Bootstrap, SQL, PHP and Javascript.
