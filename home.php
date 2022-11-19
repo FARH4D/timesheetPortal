@@ -3,17 +3,14 @@ date_default_timezone_set('Europe/London');
 session_start();
 
 if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
-
 ?>
 
 
 <script>
-
     function refresh(){
         var d = new Date();
         document.getElementById("currentTime").innerHTML = d.toLocaleTimeString();
     }
-    
 </script>
 
 
@@ -29,12 +26,18 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 <body>
 
-    <div class = "px-3 py-3 bg-primary">
-        <span id = "currentDate" class = "text-white fw-bold h4 d-inline-flex" ></span>
-        <a href = "home.php"><img src = "images/homeIcon.png" style = "width: 3%; margin-left: 38%"></a>
-        <p class = "text-white fw-bold h4 d-inline-flex" style = "margin-left: 40%"> <?php echo $_SESSION['username']; ?> </p>
-    </div>
-
+    <nav class = "navbar navbar-expand-lg bg-primary">
+        <div class = "container-fluid justify-content-start">  
+            <span id = "currentDate" class = "text-white fw-bold h4" ></span>
+        </div>
+        <div class = "navbar-brand"> 
+            <a href = "home.php"><img src = "images/homeIcon.png" style = "width: 10%; margin-left:35%" ></a>
+        </div>
+        
+        <div class = "container-fluid justify-content-end"> 
+            <p class = "text-white fw-bold h4"> <?php echo $_SESSION['username']; ?> </p>
+        </div>
+    </nav>
 
     <div class = "d-inline-flex h2 text-white fw-bold ms-3 mt-3 inline-flex">
         <?php if(date('H') <= 12){ ?> 
@@ -48,9 +51,50 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     </div> </br>
     
     <body onload = "setInterval(refresh, 100);">
-            <span id = "currentTime" class = "text-white fw-bold h1" style = "margin-left: 43%" ></span>
+            <span id = "currentTime" class = "text-primary fw-bolder h1" style = "margin-left: 43%" ></span>
     </body></br>
-    <a href = "logout.php" class = "h4 text-white fw-bold ms-3 mt-5">Logout </a>
+
+
+    <section class="p-5 m-5" >
+        <div class = "container">
+            <div class = "row text-center text-white fw-bold">
+                <div class="col-md">
+                    <div class = "card bg-primary" style = "width:300px; height: 300px;">
+                        <h2 class = "card-text">View </br>Timesheets</h2>
+                        <img class = "card-img-bottom mx-auto" src = "images/timeSheet.png" style = "width:200px;">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class = "card bg-primary" style = "width:300px; height: 300px;">
+                        <h2 class = "card-text">Personal Information</h2>
+                        <img class = "card-img-bottom mx-auto" src = "images/personalInfo.png" style = "width:200px;">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class = "card bg-primary" style = "width:300px; height: 300px;">
+                        <h2 class = "card-text">Role Information</h2>
+                        <img class = "card-img-bottom mx-auto" src = "images/roleInfo.png" style = "width:200px;">
+                    </div>
+                </div>
+            </div>
+            <div class = "row text-center text-white fw-bold" style = "margin-left:9%">
+                <div class="col-md">
+                    <div class = "card bg-primary mt-5" style = "width:300px; height: 300px;">
+                        <h2 class = "card-text">View </br>Payslips</h2>
+                        <img class = "card-img-bottom mx-auto" src = "images/paySlip.png" style = "width:200px;">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <a href = "logout.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
+                        <div class = "card bg-primary mt-5" style = "width:300px; height: 300px;">
+                            <h2 class = "card-text">Log Out</h2>
+                            <img class = "card-img-bottom mx-auto" src = "images/logOut.png" style = "width:200px;">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 
