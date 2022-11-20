@@ -31,7 +31,6 @@ if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['u
     } elseif($pWord !== $repWord){
         header("Location: ../register.php?error=Passwords do not match!");
         exit();
-    
     } else{
         $pWord = md5($pWord);
         $sql = "SELECT * FROM users WHERE username='$uName'";
@@ -45,7 +44,7 @@ if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['u
         else{
             $sql2 = "INSERT INTO users(first_Name, last_Name, phone_Number, username, pWord, address1, accountType, approver) VALUES('$fName', '$lName', 0, '$uName', '$pWord', 'empty', 'employee', '2479')";
             $result2 = mysqli_query($conn, $sql2);
-            if ($result){
+            if ($result2){
                 header("Location: ../register.php?signedUp=Account registered.");
                 exit();
             }

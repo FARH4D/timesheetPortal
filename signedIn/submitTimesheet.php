@@ -9,9 +9,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     function refresh(){
         var d = new Date();
         document.getElementById("currentTime").innerHTML = d.toLocaleTimeString();
+        document.getElementByID("test5").value = "heyy";
+        document.getElementByID("test5").innerHTML = "heyy2";
     }
-</script>
 
+</script>
 
 
 <!DOCTYPE html>
@@ -45,8 +47,19 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
     <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">SUBMIT NEW TIMESHEET </p>
 
-    <form method = "post" action = "signup.php">
+    <p class="text-white text-center mt-5 fw-bold fs-2">Week running: <span id = "startDay" class="text-white text-center mt-5 fw-bold"> </span> - 
+    <span id = "endDay" class="text-white text-center mt-5 fw-bold"> </span> </p>
+   
+   
 
+    <form method = "post" action = "timeSheets/submitTimesheetScript.php">
+        <?php if (isset($_GET['error'])){ ?>
+            <p class = "text-danger mt-5" style="margin-left:43.5%; font-weight: bolder;"> <?php echo $_GET['error']; ?> </p>
+        <?php } ?>
+        <?php if (isset($_GET['success'])){ ?>
+            <p class = "text-success mt-5" style="margin-left:43.5%; font-weight: bolder;"> <?php echo $_GET['success']; ?> </p>
+        <?php } ?>
+        
         <section class="p-5 m-5" >
             <div class = "container">
                 <div class = "row text-center text-white fw-bold" style = "">
@@ -62,27 +75,32 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
                             <input type = "name" class = "form-control-sm" name = "location1">
                         </div>
                     </div>
-                </div>
-
-                <div class = "row text-center text-white fw-bold" style = "">
                     <div class="col-md">
                         <div class = "">
                             <label for = "breaks1" class = "form-label text-white">Break Hours: &nbsp;</label>
                             <input type = "number" class = "form-control-sm" name = "breaks1">
                         </div>
                     </div>
+                </div>
+
+                <div class = "row text-center text-white fw-bold mt-5" style = "">
                     <div class="col-md">
                         <div class = "">
-                            <label for = "dates1" class = "form-label text-white ">Dates: &nbsp;</label>
-                            <input type = "name" class = "form-control-sm" name = "dates1">
+                            <label for = "startDate1" class = "form-label text-white ">Start Date: &nbsp;</label>
+                            <input type = "date" class = "form-control-sm" name = "startDate1">
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class = "">
+                            <label for = "endDate1" class = "form-label text-white ">End Date: &nbsp;</label>
+                            <input type = "date" class = "form-control-sm" name = "endDate1">
                         </div>
                     </div>
                 </div>
+                <input type = "hidden" id="test5" name="jsStartDate" value = ></input>
             </div>
         </section>
-
-        <div class = "mb-3" style = "margin-left: 50%">
-
+            <div class = "mb-3" style = "margin-left: 48.3%">
             <button type = "submit"> Submit Timesheet </button>
 
         </div>
@@ -103,8 +121,22 @@ else{
 }
 ?>
 
-
 <script>
     var date = new Date();
     document.getElementById("currentDate").innerHTML = date.toLocaleDateString();
+    
+    var first = date.getDate() - date.getDay();
+    var last = first + 6;
+
+    var startDay = new Date(date.setDate(first)).toLocaleDateString();
+    var endDay = new Date(date.setDate(last)).toLocaleDateString();
+
+    document.getElementById("startDay").innerHTML = startDay;
+    document.getElementById("endDay").innerHTML = endDay;
+
+    localStorage.setItem("startDay1",startDay);
+    localStorage.setItem("endDay1",endDay);
+
+    document.getElementById("test5").setAttribute('value', startDay);
+
 </script>
