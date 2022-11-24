@@ -50,8 +50,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
         <div class = "container">
             <div class = "row text-center text-white fw-bold" style = "margin-left:12%;">
                 <div class="col-md">
-                    <a href = "timesheets.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
-                        <div class = "card bg-primary" style = "width:300px; height: 300px;">
+                    <a href = "timeSheets/viewTimesheets.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
+                        <div class = "card bg-primary" style = "width:90%; height: 300px;">
                             <h2 class = "card-text">View </br>Timesheets</h2>
                             <img class = "card-img-bottom mx-auto" src = "../images/timeSheet.png" style = "width:200px;">
                         </div>
@@ -59,7 +59,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
                 </div>
                 <div class="col-md">
                     <a href = "submitTimesheet.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
-                        <div class = "card bg-primary" style = "width:300px; height: 300px;">
+                        <div class = "card bg-primary" style = "width:90%; height: 300px;">
                             <h2 class = "card-text">Submit Timesheet</h2>
                             <img class = "card-img-bottom mx-auto" src = "../images/submit.png" style = "width:200px;">
                         </div>

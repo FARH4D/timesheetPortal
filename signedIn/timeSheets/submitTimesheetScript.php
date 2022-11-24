@@ -1,7 +1,6 @@
 <script>
     var startDay = localStorage.getItem("startDay1");
     var endDay = localStorage.getItem("endDay1");
-
 </script>
 
 <?php
@@ -17,15 +16,18 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
         $startDate = $_POST['startDate1'];
         $endDate = $_POST['endDate1'];
         $jsStartDate = $_POST['jsStartDate'];
+        $jsEndDate = $_POST['jsEndDate'];
+        $jsStartDateFormat = date('Y-m-d', strtotime($jsStartDate));
+        $jsEndDateFormat = date('Y-m-d', strtotime($jsEndDate));
         $startDateFormat = date('Y-m-d', strtotime($startDate));
         $endDateFormat = date('Y-m-d', strtotime($endDate));
+        $username = $_SESSION['username'];
         ?> 
         <script>
         var inputStart = new Date('<?php echo $startDate; ?>');
         var startToUTC = inputStart.toLocaleDateString();
         var inputEnd = new Date('<?php echo $endDate; ?>');
         var endToUTC = inputEnd.toLocaleDateString();
-        
         if (startDay > startToUTC){
             window.location="../submitTimesheet.php?error=Please enter a date within the correct range.";
         }else if (endDay < endToUTC){
@@ -35,6 +37,7 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
         }
         </script>
         <?php
+        
         if(empty($hoursWorked)){
             header("Location: ../submitTimesheet.php?error=Hours worked is empty!");
             exit();
@@ -56,23 +59,19 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
             exit();
         }
         else{
-            $timesheetID = $_SESSION['username'];
+            $timesheetID = $username;
             $timesheetID .= $jsStartDate;
             
             $sql = "SELECT * FROM timesheets WHERE timesheet_ID='$timesheetID'";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0){
-                echo "hi4";
                 header("Location: ../submitTimesheet.php?error=You have already submitted this timesheet.");
                 exit();
             }
             else{
-                echo "hi";
-                $sql2 = "INSERT INTO timesheets(breaks, hours_Worked, location, timesheet_ID, start_Date, end_Date) VALUES('$breaks', '$hoursWorked', '$location', '$timesheetID', '$startDateFormat', '$endDateFormat')";
-                echo "hi3";
+                $sql2 = "INSERT INTO timesheets(breaks, hours_Worked, location, timesheet_ID, start_Date, end_Date, user, approval_Status) VALUES('$breaks', '$hoursWorked', '$location', '$timesheetID', '$startDateFormat', '$endDateFormat', '$username', 'false')";
                 $result2 = mysqli_query($conn, $sql2);
-                echo "hi3";
                 if ($result){
                     header("Location: ../submitTimesheet.php?success=Timesheet submitted.");
                     exit();
@@ -90,3 +89,7 @@ else{
     header("Location: ../../index.php");
     exit();
 }
+
+
+
+

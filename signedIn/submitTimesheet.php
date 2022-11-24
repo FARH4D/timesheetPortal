@@ -97,12 +97,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
                         </div>
                     </div>
                 </div>
-                <input type = "hidden" id="test5" name="jsStartDate" value = ></input>
+                <input type = "hidden" id="startingDay" name="jsStartDate"></input>
+                <input type = "hidden" id="endingDay" name="jsEndDate"></input>
             </div>
         </section>
             <div class = "mb-3" style = "margin-left: 48.3%">
             <button type = "submit"> Submit Timesheet </button>
-
         </div>
     </form>
 
@@ -137,6 +137,7 @@ else{
     localStorage.setItem("startDay1",startDay);
     localStorage.setItem("endDay1",endDay);
 
-    document.getElementById("test5").setAttribute('value', startDay);
+    document.getElementById("startingDay").setAttribute('value', startDay);
+    document.getElementById("endingDay").setAttribute('value', endDay);
 
 </script>
