@@ -66,7 +66,10 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0){
-                header("Location: ../submitTimesheet.php?error=You have already submitted this timesheet.");
+
+                $sqlUpdate = "UPDATE timesheets SET breaks = '$breaks', hours_Worked = '$hoursWorked', location = '$location', start_Date = '$startDateFormat', end_Date = '$endDateFormat', approval_Status = 'false'  WHERE timesheet_ID = '$timesheetID'";
+                $updateTimesheet = mysqli_query($conn, $sqlUpdate);
+                header("Location: ../submitTimesheet.php?success=Timesheet updated.");
                 exit();
             }
             else{
