@@ -42,7 +42,7 @@ if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['u
             exit();
         }
         else{
-            $sql2 = "INSERT INTO users(first_Name, last_Name, phone_Number, username, pWord, address1, accountType, approver) VALUES('$fName', '$lName', 0, '$uName', '$pWord', 'empty', 'employee', '2479')";
+            $sql2 = "INSERT INTO users(first_Name, last_Name, phone_Number, username, pWord, address1, accountType, approver, roleID) VALUES('$fName', '$lName', 0, '$uName', '$pWord', 'empty', 'Employee', '2479', 0)";
             $result2 = mysqli_query($conn, $sql2);
             if ($result2){
                 header("Location: ../register.php?signedUp=Account registered.");

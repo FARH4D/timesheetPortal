@@ -29,7 +29,8 @@ if (isset($_POST['username1']) && isset($_POST['password1'])){
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['address'] = $row['address'];
                 $_SESSION['accountType'] = $row['accountType'];
-                
+                $_SESSION['approver'] = $row['approver'];
+                $_SESSION['role'] = $row['roleID'];
 
                 header("Location: ../signedIn/home.php");
                 exit();
