@@ -10,7 +10,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     $result = mysqli_query($conn, $sql);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

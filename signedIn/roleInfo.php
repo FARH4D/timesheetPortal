@@ -6,7 +6,7 @@ session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
     $approverID = $_SESSION['approver'];
-    $sql = "SELECT * FROM `users` WHERE ID = '$approverID'"; 
+    $sql = "SELECT * FROM users WHERE ID = '$approverID'"; 
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     
@@ -28,8 +28,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     }
 </script>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +39,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 </head>
 
 <body>
-
-
     <nav class = "navbar navbar-expand-lg bg-primary">
         <div class = "container-fluid justify-content-start">  
             <span id = "currentDate" class = "text-white fw-bold h4" ></span>
@@ -55,6 +51,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             <p class = "text-white fw-bold h4"> <?php echo $_SESSION['username']; ?> </p>
         </div>
     </nav>
+
+    <p class="text-white h2 fw-bold m-4 text-center">Role Information</p>
 
     <section class="p-5 m-5 h2">
         <div class = "container">
@@ -78,15 +76,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
         </div>
     </section>
 
-
-
-
-
-
 </body>
-
-
-
 
 <?php
 }
@@ -95,7 +85,6 @@ else{
     exit();
 }
 ?>
-
 
 <script>
     var date = new Date();

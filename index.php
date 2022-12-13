@@ -8,14 +8,9 @@
     <link href = "styles.css" rel = "stylesheet">
 </head>
 
-
-
-
-
 <body>
-
-
     <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">LOGIN </p>
+    <p class = "text-white text-center mt-2 fs-3 fw-bold font-family-courier-new">(Case sensitive) </p>
 
     <form method = "post" action = "dataHandling/login.php">
         <?php if (isset($_GET['error'])){ ?>
@@ -40,6 +35,4 @@
     <a href = "register.php" style = "color: var(--bs-white); margin-left: 43.5%">Do you want to register? Click here.</a>
 
 </body>
-
-
 </html>

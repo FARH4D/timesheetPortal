@@ -95,10 +95,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             </div>
         </div>
     </section>
-
 </body>
-
-
 
 <?php
 
@@ -127,11 +124,7 @@ if (isset($_SESSION['accountType']) && $_SESSION['accountType'] == "Admin"){
             </div>
         </div>
     </section>
-
-
 <?php } ?>
-
-
 </html>
 
 <?php

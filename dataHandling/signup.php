@@ -2,8 +2,6 @@
 session_start();
 include "db_conn.php";
 
-
-
 if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['username1'])
     && isset($_POST['password1']) && isset($_POST['rePassword1'])){
     
@@ -35,30 +33,23 @@ if (isset($_POST['firstName1']) && isset($_POST['lastName1']) && isset($_POST['u
         $pWord = md5($pWord);
         $sql = "SELECT * FROM users WHERE username='$uName'";
         $result = mysqli_query($conn, $sql);
-        
 
         if(mysqli_num_rows($result) > 0){
             header("Location: ../register.php?error=Username is already taken.");
             exit();
-        }
-        else{
+        } else{
             $sql2 = "INSERT INTO users(first_Name, last_Name, phone_Number, username, pWord, address1, accountType, approver, roleID) VALUES('$fName', '$lName', 0, '$uName', '$pWord', 'empty', 'Employee', '2479', 0)";
             $result2 = mysqli_query($conn, $sql2);
             if ($result2){
                 header("Location: ../register.php?signedUp=Account registered.");
                 exit();
-            }
-            else{
+            } else{
                 header("Location: ../register.php?error=Unknown error.");
                 exit();
             }
-           
         }
-
-        }
-        
     }
-else{
+} else{
     header("Location: ../register.php");
     exit();
 }

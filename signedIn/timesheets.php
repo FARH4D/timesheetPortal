@@ -12,8 +12,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     }
 </script>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +23,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 </head>
 
 <body>
-
-
     <nav class = "navbar navbar-expand-lg bg-primary mb-5">
         <div class = "container-fluid justify-content-start">  
             <span id = "currentDate" class = "text-white fw-bold h4" ></span>
@@ -44,7 +40,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
     <body onload = "setInterval(refresh, 100);">
             <span id = "currentTime" class = "text-primary fw-bolder h1" style = "margin-left: 43%" ></span>
     </body></br>
-
 
     <section class="p-5 m-5" >
         <div class = "container">
@@ -68,13 +63,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             </div>
         </div>
     </section>
-
-
-
+    
 </body>
-
-
-
 
 <?php
 }
@@ -83,7 +73,6 @@ else{
     exit();
 }
 ?>
-
 
 <script>
     var date = new Date();

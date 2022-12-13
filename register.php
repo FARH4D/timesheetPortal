@@ -8,9 +8,7 @@
     <link href = "styles.css" rel = "stylesheet">
 </head>
 
-
 <body>
-
 
     <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">REGISTER </p>
 
@@ -58,6 +56,4 @@
     <a href = "index.php" style = "color: var(--bs-white); margin-left: 43.5%">Already have an account? Click here.</a>
 
 </body>
-
-
 </html>
