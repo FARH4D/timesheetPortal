@@ -22,8 +22,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 </head>
 
 <body>
-
-
     <nav class = "navbar navbar-expand-lg bg-primary mb-5">
         <div class = "container-fluid justify-content-start">  
             <span id = "currentDate" class = "text-white fw-bold h4" ></span>
@@ -41,10 +39,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 <?php
 
-while($row = mysqli_fetch_assoc($result)){
-    ?> <p class = "text-white h4 fw-bold bg-primary p-5 mb-5"> Employee: <?php echo $row['user'] .
-    '&nbsp;&nbsp;&nbsp;' ?> Hours worked: <?php echo $row['hours_Worked'] . '&nbsp;&nbsp;'?> Location: <?php echo $row['location'] . '&nbsp;&nbsp;'?> 
-    Start Date: <?php echo date("d/m/Y", strToTime($row ['start_Date'])) . '&nbsp;&nbsp;' ?> End Date: <?php echo date("d/m/Y", strToTime($row['end_Date']))?> </br></br>
+while($row = mysqli_fetch_assoc($result)){ ?>
+    <p class = "text-white h4 fw-bold bg-primary p-5 mb-5"> Employee: <?php echo $row['user'] . '&nbsp;&nbsp;&nbsp;' ?>
+    Hours worked: <?php echo $row['hours_Worked'] . '&nbsp;&nbsp;'?>
+    Location: <?php echo $row['location'] . '&nbsp;&nbsp;'?> 
+    Start Date: <?php echo date("d/m/Y", strToTime($row ['start_Date'])) . '&nbsp;&nbsp;' ?> End Date: <?php echo date("d/m/Y", strToTime($row['end_Date']))?> 
+    </br></br>
     Timesheet ID: <?php echo $row['timesheet_ID'] ?> 
     </br></br>
     Approval Status:

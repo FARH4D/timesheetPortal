@@ -28,7 +28,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 <body>
 
-
     <nav class = "navbar navbar-expand-lg bg-primary mb-5">
         <div class = "container-fluid justify-content-start">  
             <span id = "currentDate" class = "text-white fw-bold h4" ></span>
@@ -41,9 +40,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             <p class = "text-white fw-bold h4"> <?php echo $_SESSION['username']; ?> </p>
         </div>
     </nav>
-
-
-
 
     <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">SUBMIT NEW TIMESHEET </p>
 
@@ -105,13 +101,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             <button type = "submit"> Submit Timesheet </button>
         </div>
     </form>
-
-
-
 </body>
-
-
-
 
 <?php
 }
@@ -139,5 +129,4 @@ else{
 
     document.getElementById("startingDay").setAttribute('value', startDay);
     document.getElementById("endingDay").setAttribute('value', endDay);
-
 </script>

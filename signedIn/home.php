@@ -83,18 +83,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
                     </a>
                 </div>
             </div>
-            <div class = "row text-center text-white fw-bold" style = "margin-left:11%">
-                <div class="col-md">
-                    <a href = "payslips.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
-                        <div class = "card bg-primary mt-5" style = "width:70%; height: 300px;">
-                            <h2 class = "card-text">View </br>Payslips</h2>
-                            <img class = "card-img-bottom mx-auto" src = "../images/paySlip.png" style = "width:200px;">
-                        </div>
-                    </a>
-                </div>
+            <div class = "row text-center text-white fw-bold" style = "margin-left: 33%">
                 <div class="col-md">
                     <a href = "../dataHandling/logout.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
-                        <div class = "card bg-primary mt-5" style = "width:70%; height: 300px;">
+                        <div class = "card bg-primary mt-5" style = "width:45%; height: 300px;">
                             <h2 class = "card-text">Log Out</h2>
                             <img class = "card-img-bottom mx-auto" src = "../images/logOut.png" style = "width:200px;">
                         </div>
@@ -110,14 +102,14 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
 
 <?php
 
-if (isset($_SESSION['accountType']) && $_SESSION['accountType'] == "admin"){
+if (isset($_SESSION['accountType']) && $_SESSION['accountType'] == "Admin"){
     ?> <p class = "text-white text-center mt-5 fs-1 fw-bold font-family-courier-new">ADMIN OPTIONS </p>
 
 <section class="p-5 m-5">
         <div class = "container">
             <div class = "row text-center text-white fw-bold">
                 <div class="col-md">
-                    <a href = "timesheets.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
+                    <a href = "admin/adminApprove.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
                         <div class = "card bg-primary" style = "width:90%; height: 300px;">
                             <h2 class = "card-text">Approve </br>Timesheets</h2>
                             <img class = "card-img-bottom mx-auto" src = "../images/work.png" style = "width:200px;">
@@ -125,7 +117,7 @@ if (isset($_SESSION['accountType']) && $_SESSION['accountType'] == "admin"){
                     </a>
                 </div>
                 <div class="col-md">
-                    <a href = "personalInfo.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
+                    <a href = "admin/updateEmployees.php" class = "text-white fw-bold ms-3 mt-5" style = "text-decoration:none;">
                         <div class = "card bg-primary" style = "width:90%; height: 300px;">
                             <h2 class = "card-text">Update Employees</br>&nbsp;</h2>
                             <img class = "card-img-bottom mx-auto" src = "../images/personalInfo.png" style = "width:200px;">

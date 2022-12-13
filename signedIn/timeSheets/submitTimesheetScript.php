@@ -22,6 +22,7 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
         $startDateFormat = date('Y-m-d', strtotime($startDate));
         $endDateFormat = date('Y-m-d', strtotime($endDate));
         $username = $_SESSION['username'];
+        $approver = $_SESSION['approver'];
         ?> 
         <script>
         var inputStart = new Date('<?php echo $startDate; ?>');
@@ -73,7 +74,7 @@ if (isset($_POST['hoursWorked1']) && isset($_POST['location1']) && isset($_POST[
                 exit();
             }
             else{
-                $sql2 = "INSERT INTO timesheets(breaks, hours_Worked, location, timesheet_ID, start_Date, end_Date, user, approval_Status) VALUES('$breaks', '$hoursWorked', '$location', '$timesheetID', '$startDateFormat', '$endDateFormat', '$username', 'false')";
+                $sql2 = "INSERT INTO timesheets(breaks, hours_Worked, location, timesheet_ID, start_Date, end_Date, user, approval_Status, approver) VALUES('$breaks', '$hoursWorked', '$location', '$timesheetID', '$startDateFormat', '$endDateFormat', '$username', 'false', '$approver')";
                 $result2 = mysqli_query($conn, $sql2);
                 if ($result){
                     header("Location: ../submitTimesheet.php?success=Timesheet submitted.");
@@ -92,7 +93,3 @@ else{
     header("Location: ../../index.php");
     exit();
 }
-
-
-
-

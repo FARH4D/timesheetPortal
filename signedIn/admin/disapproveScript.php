@@ -9,10 +9,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['ID'])){
             header("Location: adminApprove.php");
             exit();
         }
-        else{
-            header("Location: adminApprove.php");
-            exit();
-        }
 }
 else {
     header("Location: ../../index.php");
